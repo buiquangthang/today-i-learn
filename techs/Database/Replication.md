@@ -8,6 +8,12 @@ Trước khi bắt đầu thì đảm bảo rằng máy tính của bạn đã c
 - MySQL Workbench
 
 # References
+Nếu bạn không biết kiến trúc database replication là gì thì có thể tham khảo bài viết sau để hiểu thêm
+https://kipalog.com/posts/Gioi-thieu-MySQL-Replication
+
+Ngoài ra, bài viết này mình còn tham khảo thêm ở các link sau:
+https://github.com/wagnerjfr/mysql-master-slaves-replication-docker
+https://tomkadwill.com/multiple-databases-in-rails
 
 # 1. Overview
 Mình sẽ build một ví dụ về ứng dụng web bằng framework Rails, có database sử dụng kiến trúc Replication, gồm 1 master và 2 slave. Công việc mà chúng ta cần phải làm sẽ gồm 2 công việc chính:
@@ -350,15 +356,11 @@ Như mình đã đề cập ở trên, thì khi sử dụng multiple với Rails
 
 Theo như thông báo thì gem Octopus đang ở mode maitain do Rails 6 ra mắt đã có support multiple database. Cho nên mình sẽ sử dụng gem Makara để làm example. Mặc dù publish muộn hơn gem Octopus, nhưng Makara được người dùng đánh giá tốt hơn hẳn so với Octopus.
 
-Việc cài đặt gem thì cực kì đơn giản, chỉ cần cài đặt ở file config database.yml là được. Dưới đây là file config mẫu của mình:
-```
-```
-Có 1 điều cần chú ý ...
+Còn việc cài đặt gem thì cực kì đơn giản, bạn chỉ cần vào trang document của gem thì hoàn toàn có thể làm đươc.
 
-# ISSUE:
-1. Không thể kết nối multiple slave với Rails
-=> Sử dụng gem Makara
-2. Update version nodejs trên ubuntu
-=> sudo n latest
-3. Không thể edit file trên docker container
-=> Sử dụng cat > file, copy nội dung vào
+Ngoài việc cho phép người dùng có thể setup master slave dễ dàng, thì gem Makara còn cho phép chúng ta thêm nhiều tùy biến khác như là điều chỉnh trọng số nhận request của các slave, khả năng thông báo lỗi cũng rất rõ ràng.
+
+# Kết luận
+Trên đây là phần hướng dẫn của mình về cách cài đặt một kiến trúc database replication, thêm vào đó là cách cấu hình để để sử dụng với một web app Rails cơ bản.
+Và các bạn cần lưu ý là tùy vào ứng dụng của bạn và ưu nhược điểm của mỗi loại kiến trúc database để lựa chọn kiến trúc cho phù hợp với ứng dụng của mình.
+Hy vọng bài viết mang lại cho bạn nhiều kiến thức bổ ích. Thân
